@@ -12,8 +12,11 @@ var Main = (function (_super) {
     }
     Main.prototype.render = function () {
         return React.createElement("div", null, 
-            React.createElement("h1", null, "hello day!!")
-        );
+            React.createElement("h1", null, "hello day!!"), 
+            React.createElement("button", {onClick: function (e) {
+                e.preventDefault();
+                console.log("click me");
+            }}, "Click"));
     };
     return Main;
 }(React.Component));

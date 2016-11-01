@@ -2,33 +2,26 @@ import http = require( "http");
 import path = require('path');
 import express = require("express");
 
-// import * as webpack from 'webpack';
 import webpack = require('webpack');
+import { renderToString } from 'react-dom/server'
 
-import webpackDevMiddleware = require('webpack-dev-middleware');
-import webpackHotMiddleware = require('webpack-hot-middleware');
-
+import * as React from "react";
+import { Main } from './../common/index';
 
 let app = express();
 
 if(process.env.NODE_ENV=="develop"){
-    // var webpackConfig = require('./../../webpack.config.dev.js');
-    // var compiler = webpack(webpackConfig);
-
-    // app.use(require("webpack-dev-middleware")(compiler, {
-    //     noInfo: true, publicPath: webpackConfig.output.publicPath
-    // }));
-    // app.use(require("webpack-hot-middleware")(compiler));
+  
     let config = require('./../webpack.config.dev').config as webpack.Configuration;
     let compiler = webpack(config);
 
-    app.use(webpackDevMiddleware(compiler, {
+    app.use(require('webpack-dev-middleware')(compiler, {
         publicPath: config.output.publicPath,
         hot: true,
         historyApiFallback: true
     }))
 
-    app.use(webpackHotMiddleware(compiler));
+    app.use(require('webpack-hot-middleware')(compiler));
 }
 
 const server = http.createServer(app);
@@ -39,7 +32,8 @@ app.use('/', express.static(path.join(__dirname, '../..' , "static/dist")));
 //add developer middle 2016.11.01
 
 app.get("*",(req,res)=>{
-    res.end(renderFullPage())
+  
+  res.end(renderFullPage(renderToString(<Main />)))
 })
 
 server.listen(port,()=>{
@@ -47,7 +41,7 @@ server.listen(port,()=>{
 })
 
 
-function renderFullPage() {
+function renderFullPage(html) {
   return `
     <!doctype html>
     <html lang="en">
@@ -58,7 +52,7 @@ function renderFullPage() {
         <title>React Redux </title>
       </head>
       <body>
-        <container id="app"></container>
+        <container id="app">${html}</container>
         
         <script src="/bundle.js"></script>
       </body>

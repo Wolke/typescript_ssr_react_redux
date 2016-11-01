@@ -10,6 +10,12 @@ export class Main extends React.Component<{},{}>{
         return <div >
         <h1>hello day!!
         </h1>
+        <button onClick={(e)=>{
+            e.preventDefault();
+            console.log("click me")
+        }} >
+        Click
+        </button>
         </div>;
     }
 
