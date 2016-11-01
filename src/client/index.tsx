@@ -1,5 +1,10 @@
 import * as React from "react";
 import * as ReactDom from 'react-dom';
 
+import { Main } from './../common/index';
 
-ReactDom.render(<div >hello react!!!!</div>,document.getElementById("app"));
+
+ReactDom.render(
+    <Main />
+    ,document.getElementById("app")
+);
