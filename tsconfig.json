@@ -2,12 +2,13 @@
     "compilerOptions": {
         "rootDir": "src",
         "target": "es5",
-        "outDir": "dist",
+        "outDir": "static",
         "sourceMap": true,
         "jsx":"react"
 
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "src/client"
     ]
 }
