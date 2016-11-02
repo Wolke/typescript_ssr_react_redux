@@ -4,8 +4,9 @@ var path = require('path');
 // import HtmlWebpackPlugin = require('html-webpack-plugin')
 exports.config = {
     entry: [
+        'react-hot-loader/patch',
         'webpack-hot-middleware/client',
-        path.join(__dirname, '../src/client/index.tsx')
+        path.join(__dirname, '../client/index')
     ],
     output: {
         path: path.join(__dirname, './dist/'),

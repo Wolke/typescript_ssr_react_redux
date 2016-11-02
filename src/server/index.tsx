@@ -5,14 +5,16 @@ import express = require("express");
 import webpack = require('webpack');
 import { renderToString } from 'react-dom/server'
 
+
 import * as React from "react";
-import { Main } from './../common/index';
+// import { Main } from './../common/index';
+import { MainProvider } from './../common/MainProvider'
 
 let app = express();
 
 if(process.env.NODE_ENV=="develop"){
   
-    let config = require('./../webpack.config.dev').config as webpack.Configuration;
+    let config = require('./webpack.config.dev').config as webpack.Configuration;
     let compiler = webpack(config);
 
     app.use(require('webpack-dev-middleware')(compiler, {
@@ -32,8 +34,7 @@ app.use('/', express.static(path.join(__dirname, '../..' , "static/dist")));
 //add developer middle 2016.11.01
 
 app.get("*",(req,res)=>{
-  
-  res.end(renderFullPage(renderToString(<Main />)))
+  res.end(renderFullPage(renderToString(<MainProvider />)))
 })
 
 server.listen(port,()=>{

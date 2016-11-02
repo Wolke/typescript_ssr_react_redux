@@ -5,15 +5,22 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var React = require("react");
+var FlatButton_1 = require('material-ui/FlatButton');
+var iconStyles = {
+    marginRight: 24,
+};
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
         _super.call(this);
     }
     Main.prototype.render = function () {
-        return React.createElement("div", null, 
-            React.createElement("h1", null, "hello day")
-        );
+        return (React.createElement("div", null, 
+            React.createElement(FlatButton_1.default, {label: "Default", onClick: function (e) {
+                e.preventDefault();
+                console.log("click me!!");
+            }}), 
+            React.createElement("h1", null, "hello!o!!!!!!")));
     };
     return Main;
 }(React.Component));

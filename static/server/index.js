@@ -5,10 +5,11 @@ var express = require("express");
 var webpack = require('webpack');
 var server_1 = require('react-dom/server');
 var React = require("react");
-var index_1 = require('./../common/index');
+// import { Main } from './../common/index';
+var MainProvider_1 = require('./../common/MainProvider');
 var app = express();
 if (process.env.NODE_ENV == "develop") {
-    var config = require('./../webpack.config.dev').config;
+    var config = require('./webpack.config.dev').config;
     var compiler = webpack(config);
     app.use(require('webpack-dev-middleware')(compiler, {
         publicPath: config.output.publicPath,
@@ -22,7 +23,7 @@ var port = process.env.PORT || 3000;
 app.use('/', express.static(path.join(__dirname, '../..', "static/dist")));
 //add developer middle 2016.11.01
 app.get("*", function (req, res) {
-    res.end(renderFullPage(server_1.renderToString(React.createElement(index_1.Main, null))));
+    res.end(renderFullPage(server_1.renderToString(React.createElement(MainProvider_1.MainProvider, null))));
 });
 server.listen(port, function () {
     console.log('Server listening on: ', port);

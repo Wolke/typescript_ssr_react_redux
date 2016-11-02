@@ -4,8 +4,9 @@ import path = require('path');
 
 export const config: webpack.Configuration = {
     entry: [
+        'react-hot-loader/patch',
         'webpack-hot-middleware/client',
-        path.join(__dirname, '../src/client/index.tsx')
+        path.join(__dirname, '../client/index')
     ],
 
     output: {
