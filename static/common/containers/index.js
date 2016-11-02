@@ -16,11 +16,11 @@ var Main = (function (_super) {
     }
     Main.prototype.render = function () {
         return (React.createElement("div", null, 
-            React.createElement(FlatButton_1.default, {label: "Default", onClick: function (e) {
+            React.createElement(FlatButton_1.default, {label: "Default!!", onClick: function (e) {
                 e.preventDefault();
                 console.log("click me!!");
-            }}), 
-            React.createElement("h1", null, "hello!o!!!!!!")));
+            }})
+        ));
     };
     return Main;
 }(React.Component));

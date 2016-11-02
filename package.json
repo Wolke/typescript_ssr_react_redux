@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -w & NODE_ENV=develop nodemon static/server/index.js",
-    "start": "tsc -w & nodemon static/server/index.js"
+    "dev" : "tsc -w & webpack --watch & nodemon static/server/index.js",
+    "start": "node static/server/index.js"
   },
   "keywords": [],
   "author": "",

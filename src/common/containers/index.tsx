@@ -15,14 +15,10 @@ export class Main extends React.Component<{},{}>{
     render(){
         return (
             <div >
-                <FlatButton label="Default" onClick={(e)=>{
+                <FlatButton label="Default!!" onClick={(e)=>{
                     e.preventDefault();
                     console.log("click me!!")
                 }} />
-                
-                <h1>hello!o!!!!!!
-                </h1>
-               
             </div>);
     }
 
