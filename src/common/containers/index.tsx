@@ -17,7 +17,7 @@ export class Main extends React.Component<{},{}>{
             <div >
                 <FlatButton label="Default!!" onClick={(e)=>{
                     e.preventDefault();
-                    console.log("click me!!")
+                    console.log("fuck me!!")
                 }} />
             </div>);
     }

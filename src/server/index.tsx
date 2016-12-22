@@ -29,7 +29,8 @@ if(process.env.NODE_ENV=="develop"){
 const server = http.createServer(app);
 let port = process.env.PORT || 3000;
 
-app.use('/', express.static(path.join(__dirname, '../..' , "static/dist")));
+console.log(__dirname);
+app.use('/', express.static(path.join(__dirname,  "./../")));
 
 //add developer middle 2016.11.01
 

@@ -17,9 +17,9 @@ module.exports = {
         }]
     },
     output: {
-        path: path.resolve(__dirname, './static/dist'),
+        path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js',
-        publicPath: '/static/dist/'
+        publicPath: '/dist/'
     },
     
     resolve: {
@@ -28,5 +28,5 @@ module.exports = {
     plugins: [
         
     ],
-    devtool: 'source-map'
+    devtool: 'cheap-module-source-map'
 }

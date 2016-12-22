@@ -2,7 +2,7 @@
     "compilerOptions": {
         "rootDir": "src",
         "target": "es5",
-        "outDir": "static",
+        "outDir": "dist",
         "sourceMap": true,
         "jsx":"react"
 
